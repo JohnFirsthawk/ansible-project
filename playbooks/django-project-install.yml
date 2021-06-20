@@ -136,27 +136,10 @@
         src: ../files/nginx/demo.https.nginx.j2
         dest: "/etc/nginx/sites-available/djangossl"
 
-
-    - name: copy certificates
-      copy:
-        src: "{{item}}"
-        dest: /etc/ssl/private/
-      with_items:
-        - ../files/certs/server.crt
-        - ../files/certs/server.key
-      
-  
     - name: enable django site in nginx
       file:
         src: "/etc/nginx/sites-available/django"
         dest: "/etc/nginx/sites-enabled/django"
-        state: link
-      notify: restart nginx
-
-    - name: enable flaskssl site in nginx
-      file:
-        src: "/etc/nginx/sites-available/djangossl"
-        dest: "/etc/nginx/sites-enabled/djangossl"
         state: link
       notify: restart nginx
 
@@ -165,11 +148,8 @@
         path: /etc/nginx/sites-enabled/default
         state: absent
       notify: restart nginx
-    
     become: yes
     become_user: root
-
-
 
   handlers:
     - name: restart nginx
