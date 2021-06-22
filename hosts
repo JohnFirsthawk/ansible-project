@@ -2,15 +2,10 @@
 lb01
 
 [webserver]
-app01
-app02
+devopsvm
 
 [database]
-db01
+deployment1
 
 [control]
 control ansible_connection=local
-
-[azurehosts]
-devopsvm
-deployment
