@@ -26,6 +26,13 @@
     debug:
       msg: "login user is {{login_user}}"  
 
+  - name: create a file known_hosts
+    file:
+      path: "{{user_dir}}/.ssh"
+      state: touch
+      mode: 0755
+    become: yes
+
   - name: ensure github.com is a known host
     lineinfile:
       dest: "{{user_dir}}/.ssh/known_hosts"
