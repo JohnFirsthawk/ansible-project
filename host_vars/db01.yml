@@ -1,1 +1,4 @@
 mysql_root_password: adminpass
+db_user: admin
+db_password: pass123
+db_name: db

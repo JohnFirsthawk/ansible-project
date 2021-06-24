@@ -27,7 +27,7 @@ ansible-vault encrypt playbooks/vars/api_key.yml
 ```
 * run task that needs this file
 ```bash
-ansible-playbook playbooks/use-api-key.yaml --ask-vault-pass
+ansible-playbook playbooks/use-api-key.yml --ask-vault-pass
 ```
 and you will be asked to provide the password
 * edit the encrypoted file with

@@ -15,15 +15,15 @@
         state: started
         enabled: yes
     
-    - name: create /var/www/demo directory
+    - name: create /var/www/project directory
       file:
-        path: /var/www/demo
+        path: /var/www/project
         state: directory
 
     - name: copy index.html
       copy:
         src: ../files/webserver/index.html
-        dest: /var/www/demo
+        dest: /var/www/project
         mode: 0755
       
     - name: disable default apache conf

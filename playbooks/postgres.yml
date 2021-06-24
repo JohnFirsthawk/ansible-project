@@ -2,6 +2,7 @@
   roles:
     - role: geerlingguy.postgresql
       become: yes
+
   tasks:
     - name: change listen_addresses to '*'
       lineinfile: 
@@ -16,11 +17,11 @@
   tags:
     - postgres
   vars:
+    postgresql_python_library: python3-psycopg2
     postgresql_databases:
       - name: db
     postgresql_users:
       - name: admin
-        password: pass123
     postgresql_locales:
       - 'en_US.UTF-8'
     postgresql_hba_entries:
