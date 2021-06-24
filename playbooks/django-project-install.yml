@@ -31,7 +31,7 @@
       path: "{{user_dir}}/.ssh"
       state: touch
       mode: 0755
-      become: yes
+    become: yes
       
   - name: ensure github.com is a known host
     lineinfile:
@@ -104,7 +104,7 @@
         virtualenv: "{{app_dir}}/myvenv"
       with_items:
         - makemigrations
-        - migrate
+        #- migrate
 
     
 
