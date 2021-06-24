@@ -17,9 +17,9 @@
     - postgres
   vars:
     postgresql_databases:
-      - name: demodb
+      - name: db
     postgresql_users:
-      - name: demouser
+      - name: admin
         password: pass123
     postgresql_locales:
       - 'en_US.UTF-8'

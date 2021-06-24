@@ -34,15 +34,15 @@
 
     - name: copy demo apache conf
       copy:
-        src: ../files/webserver/demo.conf
+        src: ../files/webserver/project.conf
         dest: /etc/apache2/sites-available
         mode: 0755
       notify: restart apache
 
     - name: enable demo apache conf
       file:
-        src: /etc/apache2/sites-available/demo.conf
-        dest: /etc/apache2/sites-enabled/demo.conf
+        src: /etc/apache2/sites-available/project.conf
+        dest: /etc/apache2/sites-enabled/project.conf
         state: link
       notify: restart apache
 

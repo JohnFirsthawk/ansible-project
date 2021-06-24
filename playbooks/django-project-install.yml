@@ -135,12 +135,12 @@
 
     - name: copy nginx conf file
       template:
-        src: ../files/nginx/demo.nginx.j2
+        src: ../files/nginx/project.nginx.j2
         dest: "/etc/nginx/sites-available/django"
 
     - name: copy nginx https conf file
       template:
-        src: ../files/nginx/demo.https.nginx.j2
+        src: ../files/nginx/project.https.nginx.j2
         dest: "/etc/nginx/sites-available/djangossl"
 
 
