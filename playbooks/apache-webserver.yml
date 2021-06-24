@@ -15,15 +15,15 @@
         state: started
         enabled: yes
     
-    - name: create /var/www/demo directory
+    - name: create /var/www/project directory
       file:
-        path: /var/www/demo
+        path: /var/www/project
         state: directory
 
     - name: copy index.html
       copy:
         src: ../files/webserver/index.html
-        dest: /var/www/demo
+        dest: /var/www/project
         mode: 0755
       
     - name: disable default apache conf
@@ -32,17 +32,17 @@
         state: absent
       notify: restart apache
 
-    - name: copy demo apache conf
+    - name: copy project apache conf
       copy:
-        src: ../files/webserver/demo.conf
+        src: ../files/webserver/project.conf
         dest: /etc/apache2/sites-available
         mode: 0755
       notify: restart apache
 
-    - name: enable demo apache conf
+    - name: enable project apache conf
       file:
-        src: /etc/apache2/sites-available/demo.conf
-        dest: /etc/apache2/sites-enabled/demo.conf
+        src: /etc/apache2/sites-available/project.conf
+        dest: /etc/apache2/sites-enabled/project.conf
         state: link
       notify: restart apache
 
