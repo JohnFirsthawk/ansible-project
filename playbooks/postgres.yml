@@ -19,7 +19,7 @@
     postgresql_databases:
       - name: db
     postgresql_users:
-      - name: user
+      - name: admin
         password: pass123
     postgresql_locales:
       - 'en_US.UTF-8'
