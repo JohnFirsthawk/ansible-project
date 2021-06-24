@@ -139,7 +139,6 @@
         src: ../files/nginx/project.https.nginx.j2
         dest: "/etc/nginx/sites-available/djangossl"
 
-
     - name: copy certificates
       copy:
         src: "{{item}}"
@@ -156,13 +155,6 @@
         state: link
       notify: restart nginx
 
-    - name: enable flaskssl site in nginx
-      file:
-        src: "/etc/nginx/sites-available/djangossl"
-        dest: "/etc/nginx/sites-enabled/djangossl"
-        state: link
-      notify: restart nginx
-
     - name: de-activate default nginx site
       file:
         path: /etc/nginx/sites-enabled/default
@@ -171,8 +163,6 @@
     
     become: yes
     become_user: root
-
-
 
   handlers:
     - name: restart nginx
@@ -186,13 +176,3 @@
         name: gunicorn
         state: restarted
       become: yes
-      
-    
-
-
-    
-
-
-
-
-  
