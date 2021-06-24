@@ -8,7 +8,7 @@ to check connectivity
 * run testing environment
 ```bash
 cd vagrant
-vagrant up
+vagrant up control lb01
 vagrant ssh-config >> ~/.ssh/config
 ```
 * run a playbook
@@ -32,7 +32,7 @@ ansible-playbook playbooks/use-api-key.yml --ask-vault-pass
 and you will be asked to provide the password
 * edit the encrypoted file with
 ```bash
-ansible-vault edit playbooks/vars/api_key.ym
+ansible-vault edit playbooks/vars/api_key.yml
 ```
 * use stored password to decrypt
 create a file that holds the password with 600 permissions
@@ -48,7 +48,7 @@ ansible-playbook playbooks/use-api-key.yaml --vault-password-file  ~/.ansible/va
 ## Create self-signed certificates
 ```bash
 cd files/certs
-openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 --nodes -subj '/C=GR/O=myorganization/OU=it/CN=myorg.com'
+openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -nodes -subj '/C=GR/O=myorganization/OU=it/CN=myorg.com'
 ```
 notice that crt and key files are added to .gitignore
 

@@ -1,4 +1,3 @@
----
 - hosts: webserver
 
   vars:
@@ -104,11 +103,8 @@
         virtualenv: "{{app_dir}}/myvenv"
       with_items:
         - makemigrations
-        - migrate
+        #- migrate
 
-    
-
-    
     
     - name: copy django service file
       template:
@@ -137,7 +133,7 @@
       template:
         src: ../files/nginx/project.nginx.j2
         dest: "/etc/nginx/sites-available/django"
-
+    
     - name: copy nginx https conf file
       template:
         src: ../files/nginx/project.https.nginx.j2
