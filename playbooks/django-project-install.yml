@@ -4,7 +4,7 @@
   vars:
     app_dir: "{{user_dir}}/django-project"
     git_repo_url: "https://github.com/JohnFirsthawk/django-project.git"
-    git_repo_branch: "jenkins"
+    git_repo_branch: "master"
 
   tasks:
 
