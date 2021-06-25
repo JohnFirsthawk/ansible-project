@@ -4,7 +4,7 @@
   vars:
     app_dir: "{{user_dir}}/django-project"
     git_repo_url: "https://github.com/JohnFirsthawk/django-project.git"
-    git_repo_branch: "master"
+    git_repo_branch: "jenkins"
 
   tasks:
 
@@ -104,7 +104,8 @@
         virtualenv: "{{app_dir}}/myvenv"
       with_items:
         - makemigrations
-        #- migrate
+        - migrate
+
 
     
 
