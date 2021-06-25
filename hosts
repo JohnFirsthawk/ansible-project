@@ -4,3 +4,5 @@ lb01
 [control]
 control ansible_connection=local
 
+[database]
+db01

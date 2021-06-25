@@ -1,57 +1,32 @@
 Procedure
-* create an inventory file (e.g. hosts or hosts.yaml) that holds the remote hosts that ansible will handle.
+* create connection with jenkins server with ssh
+* take root access and then access to jenkins workspace
+```bash
+sudo su
+su jenkins
+cd
+cd workspace
+```
+* check that ansible-project is in workspace
+*check connectictivy with deployment vm
 * run 
 ```bash
 ansible -m ping all
-```
-to check connectivity
-* run testing environment
-```bash
-cd vagrant
-vagrant up control lb01
-vagrant ssh-config >> ~/.ssh/config
-```
-* run a playbook
-```bash
-ansible-playbook -l database playbooks/database.yml
-```
-
-## Vault
-* create a file that holds the **secret**
-```bash
-touch playbooks/vars/api_key.yml
-```
-* encrypt the file
-```bash
-ansible-vault encrypt playbooks/vars/api_key.yml
-```
-* run task that needs this file
-```bash
-ansible-playbook playbooks/use-api-key.yaml --ask-vault-pass
-```
-and you will be asked to provide the password
-* edit the encrypoted file with
-```bash
-ansible-vault edit playbooks/vars/api_key.yml
-```
-* use stored password to decrypt
-create a file that holds the password with 600 permissions
-```bash
-vim ~/.ansible/vault_pass.txt
-chmod 600 ~/.ansible/vault_pass.txt
-```
-```bash
-ansible-playbook playbooks/use-api-key.yaml --vault-password-file  ~/.ansible/vault_pass.txt
 ```
 
 
 ## Create self-signed certificates
 ```bash
 cd files/certs
-openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 --nodes -subj '/C=GR/O=myorganization/OU=it/CN=myorg.com'
+openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -nodes -subj '/C=GR/O=myorganization/OU=it/CN=myorg.com'
 ```
-notice that crt and key files are added to .gitignore
 
+
+
+* run the playbook that install django-project from git in deployment server
+```bash
+ansible-playbook playbooks/django-project-install.yml
+```
 
 * postgres
 install postgresql role
