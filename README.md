@@ -14,7 +14,6 @@ cd workspace
 ansible -m ping all
 ```
 
-
 ## Create self-signed certificates
 ```bash
 cd files/certs
