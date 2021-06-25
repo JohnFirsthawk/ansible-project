@@ -28,14 +28,14 @@
 
   - name: create a file known_hosts
     file:
-      path: "{{user_dir}}/.ssh"
+      path: "/home/jenkins/.ssh"
       state: touch
       mode: 0755
     become: yes
       
   - name: ensure github.com is a known host
     lineinfile:
-      dest: "{{user_dir}}/.ssh/known_hosts"
+      dest: "/home/jenkins/.ssh/known_hosts"
       create: yes
       state: present
       line: "{{lookup('pipe', 'ssh-keyscan -t rsa github.com')}}"
