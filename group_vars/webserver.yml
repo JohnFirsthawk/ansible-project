@@ -12,11 +12,11 @@ djangoservice:
 
 app:
   env:
-    SQLALCHEMY_DATABASE_URI: postgresql://admin:pass123@db01/db
+    SQLALCHEMY_DATABASE_URI: postgresql://admin:pass123@db/db
     SQLALCHEMY_TRACK_MODIFICATIONS: False
     SECRET_KEY: proto007
 
 django:
   env:
     SECRET_KEY: 'proto007'
-    DATABASE_URL: 'postgresql://admin:pass123@db01/db'
+    DATABASE_URL: 'postgresql://admin:pass123@db/db'

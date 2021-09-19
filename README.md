@@ -8,12 +8,12 @@ to check connectivity
 * run testing environment
 ```bash
 cd vagrant
-vagrant up control lb01
+vagrant up
 vagrant ssh-config >> ~/.ssh/config
 ```
 * run a playbook
 ```bash
-ansible-playbook -l database playbooks/database.yml
+ansible-playbook playbooks/loadbalancer.yml
 ```
 
 ## Vault
@@ -30,7 +30,7 @@ ansible-vault encrypt playbooks/vars/api_key.yml
 ansible-playbook playbooks/use-api-key.yml --ask-vault-pass
 ```
 and you will be asked to provide the password
-* edit the encrypoted file with
+* edit the encrypted file with
 ```bash
 ansible-vault edit playbooks/vars/api_key.yml
 ```

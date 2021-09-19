@@ -96,14 +96,7 @@
         virtualenv: "{{app_dir}}/myvenv"
         virtualenv_python: python3
 
-    - name: make migrations
-      django_manage:
-        command: "{{ item }}"
-        project_path: "{{app_dir}}/myproject"
-        virtualenv: "{{app_dir}}/myvenv"
-      with_items:
-        - makemigrations
-        #- migrate
+    
 
     
     - name: copy django service file
